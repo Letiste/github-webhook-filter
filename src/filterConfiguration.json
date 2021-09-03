@@ -1,0 +1,9 @@
+{
+  "$schema": "../schemas/configuration/filterConfiguration.schema.json",
+  "pull_request": {
+    "actions": ["closed", "opened"],
+    "users-black-listed": []
+  }
+
+
+}

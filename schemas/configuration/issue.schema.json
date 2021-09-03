@@ -1,0 +1,45 @@
+{
+  "$id": "issue.schema.json",
+  "type": "object",
+  "required": ["issue"],
+  "properties": {
+    "issue": {
+      "type": "object",
+      "required": ["actions", "users-black-listed"],
+      "properties": {
+        "actions": {
+          "type": "array",
+          "description": "Permitted actions",
+          "items": {
+            "enum": [
+              "opened",
+              "edited",
+              "deleted",
+              "pinned",
+              "unpinned",
+              "closed",
+              "reopened",
+              "assigned",
+              "unassigned",
+              "labeled",
+              "unlabeled",
+              "locked",
+              "unlocked",
+              "transferred",
+              "milestoned",
+              "demilestoned"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "users-black-listed": {
+          "type": "array",
+          "description": "List of black listed users",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

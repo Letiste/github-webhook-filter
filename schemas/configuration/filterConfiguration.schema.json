@@ -1,0 +1,7 @@
+{
+  "$id": "filterConfiguration.schema.json",
+  "anyOf": [
+    {"$ref": "./pullRequest.schema.json"},
+    {"$ref": "./issue.schema.json"}
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "$id": "pullRequest.schema.json",
+  "type": "object",
+  "required": ["action", "sender"],
+  "properties": {
+    "action": {
+      "type": "string",
+      "enum": [
+        "assigned",
+        "auto_merge_disabled",
+        "auto_merge_enabled",
+        "closed",
+        "converted_to_draft",
+        "edited",
+        "labeled",
+        "locked",
+        "opened",
+        "ready_for_review",
+        "reopened",
+        "review_request_removed",
+        "review_requested",
+        "synchronize",
+        "unassigned",
+        "unlabeled",
+        "unlocked"
+      ]
+    },
+    "sender": {
+      "type": "object",
+      "required": ["login"],
+      "properties": {
+        "login": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
