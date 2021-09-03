@@ -1,0 +1,26 @@
+{
+  "$id": "codeScanningAlert.schema.json",
+  "type": "object",
+  "required": ["action", "sender"],
+  "properties": {
+    "action": {
+        "enum": [
+          "created",
+          "reopened_by_user",
+          "closed_by_user",
+          "fixed",
+          "appeared_in_branch",
+          "reopened"
+        ]
+    },
+    "sender": {
+      "type": "object",
+      "required": ["login"],
+      "properties": {
+        "login": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

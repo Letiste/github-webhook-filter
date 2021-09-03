@@ -6,6 +6,9 @@
  */
 
 export type FilterConfigurationSchema = {
+  users_black_listed: string[];
+  [k: string]: unknown;
+} & {
   pull_request: {
     /**
      * Permitted actions
@@ -29,10 +32,156 @@ export type FilterConfigurationSchema = {
       | "unlabeled"
       | "unlocked"
     )[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  repositoryVulnerabilityAlert: {
     /**
-     * List of black listed users
+     * Permitted actions
      */
-    "users-black-listed": string[];
+    actions: ("create" | "dismiss" | "resolve")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  team: {
+    /**
+     * Permitted actions
+     */
+    actions: ("created" | "deleted" | "edited" | "added_to_repository" | "removed_from_repository")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  teamAdd: {
+    allowed: boolean;
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  codeScanningAlert: {
+    /**
+     * Permitted actions
+     */
+    actions: ("created" | "reopened_by_user" | "closed_by_user" | "fixed" | "appeared_in_branch" | "reopened")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  membership: {
+    /**
+     * Permitted actions
+     */
+    actions: ("added" | "removed")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  milestone: {
+    /**
+     * Permitted actions
+     */
+    actions: ("created" | "closed" | "opened" | "edited" | "deleted")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  secretScanningAlert: {
+    /**
+     * Permitted actions
+     */
+    actions: ("created" | "resolved" | "reopened")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  organization: {
+    /**
+     * Permitted actions
+     */
+    actions: ("deleted" | "renamed" | "member_added" | "member_removed" | "member_invited")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  release: {
+    /**
+     * Permitted actions
+     */
+    actions: ("published" | "unpublished" | "created" | "edited" | "deleted" | "prereleased" | "released")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  issue: {
+    /**
+     * Permitted actions
+     */
+    actions: (
+      | "opened"
+      | "edited"
+      | "deleted"
+      | "pinned"
+      | "unpinned"
+      | "closed"
+      | "reopened"
+      | "assigned"
+      | "unassigned"
+      | "labeled"
+      | "unlabeled"
+      | "locked"
+      | "unlocked"
+      | "transferred"
+      | "milestoned"
+      | "demilestoned"
+    )[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  repository: {
+    /**
+     * Permitted actions
+     */
+    actions: (
+      | "created"
+      | "deleted"
+      | "archived"
+      | "unarchived"
+      | "edited"
+      | "renamed"
+      | "transferred"
+      | "publicized"
+      | "privatized"
+    )[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  create: {
+    /**
+     * Permitted refType
+     */
+    refType: ("branch" | "tag")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  deployKey: {
+    /**
+     * Permitted actions
+     */
+    actions: ("created" | "deleted")[];
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+} & {
+  member: {
+    /**
+     * Permitted actions
+     */
+    actions: ("added" | "removed" | "edited")[];
     [k: string]: unknown;
   };
   [k: string]: unknown;

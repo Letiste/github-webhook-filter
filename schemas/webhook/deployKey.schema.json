@@ -1,0 +1,22 @@
+{
+  "$id": "deployKey.schema.json",
+  "type": "object",
+  "required": ["action", "sender"],
+  "properties": {
+    "action": {
+        "enum": [
+          "created",
+          "deleted"
+        ]
+    },
+    "sender": {
+      "type": "object",
+      "required": ["login"],
+      "properties": {
+        "login": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

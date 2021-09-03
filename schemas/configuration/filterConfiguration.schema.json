@@ -1,7 +1,115 @@
 {
   "$id": "filterConfiguration.schema.json",
-  "anyOf": [
-    {"$ref": "./pullRequest.schema.json"},
-    {"$ref": "./issue.schema.json"}
+  "allOf": [
+    {
+      "type": "object",
+      "required": ["users_black_listed"],
+      "properties": { "users_black_listed": { "type": "array", "items": { "type": "string" } } }
+    },
+    {
+      "type": "object",
+      "required": ["pull_request"],
+      "properties": {
+        "pull_request": { "$ref": "./pullRequest.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["repositoryVulnerabilityAlert"],
+      "properties": {
+        "repositoryVulnerabilityAlert": { "$ref": "./repositoryVulnerabilityAlert.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["team"],
+      "properties": {
+        "team": { "$ref": "./team.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["teamAdd"],
+      "properties": {
+        "teamAdd": { "$ref": "./teamAdd.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["codeScanningAlert"],
+      "properties": {
+        "codeScanningAlert": { "$ref": "./codeScanningAlert.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["membership"],
+      "properties": {
+        "membership": { "$ref": "./membership.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["milestone"],
+      "properties": {
+        "milestone": { "$ref": "./milestone.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["secretScanningAlert"],
+      "properties": {
+        "secretScanningAlert": { "$ref": "./secretScanningAlert.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["organization"],
+      "properties": {
+        "organization": { "$ref": "./organization.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["release"],
+      "properties": {
+        "release": { "$ref": "./release.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["issue"],
+      "properties": {
+        "issue": { "$ref": "./issue.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["repository"],
+      "properties": {
+        "repository": { "$ref": "./repository.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["create"],
+      "properties": {
+        "create": { "$ref": "./create.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["deployKey"],
+      "properties": {
+        "deployKey": { "$ref": "./deployKey.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["member"],
+      "properties": {
+        "member": { "$ref": "./member.schema.json" }
+      }
+    }
   ]
 }

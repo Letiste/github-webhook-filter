@@ -1,0 +1,25 @@
+{
+  "$id": "milestone.schema.json",
+  "type": "object",
+  "required": ["action", "sender"],
+  "properties": {
+    "action": {
+        "enum": [
+          "created",
+          "closed",
+          "opened",
+          "edited",
+          "deleted"
+        ]
+    },
+    "sender": {
+      "type": "object",
+      "required": ["login"],
+      "properties": {
+        "login": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

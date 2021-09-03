@@ -1,0 +1,21 @@
+{
+  "$id": "milestone.schema.json",
+  "type": "object",
+  "required": ["actions"],
+  "properties": {
+    "actions": {
+      "type": "array",
+      "description": "Permitted actions",
+      "items": {
+        "enum": [
+          "created",
+          "closed",
+          "opened",
+          "edited",
+          "deleted"
+        ]
+      },
+      "uniqueItems": true
+    }
+  }
+}

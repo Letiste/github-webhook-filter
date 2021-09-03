@@ -1,9 +1,49 @@
 {
   "$schema": "../schemas/configuration/filterConfiguration.schema.json",
+  "users_black_listed": [],
   "pull_request": {
-    "actions": ["closed", "opened"],
-    "users-black-listed": []
+    "actions": ["closed", "opened"]
+  },
+  "issue": {
+    "actions": ["opened"]
+  },
+  "create": {
+    "refType": ["branch", "tag"]
+  },
+  "member": {
+    "actions": ["added", "edited", "removed"]
+  },
+  "deployKey": {
+    "actions": ["created", "deleted"]
+  },
+  "repository": {
+    "actions": ["created"]
+  },
+  "repositoryVulnerabilityAlert": {
+    "actions": ["create"]
+  },
+  "teamAdd": {
+    "allowed": true
+  },
+  "codeScanningAlert": {
+    "actions": ["created"]
+  },
+  "membership": {
+    "actions": ["added"]
+  },
+  "milestone": {
+    "actions": ["created"]
+  },
+  "organization": {
+    "actions": ["deleted"]
+  },
+  "release": {
+    "actions": ["created"]
+  },
+  "secretScanningAlert": {
+    "actions": ["created"]
+  },
+  "team": {
+    "actions": ["created"]
   }
-
-
 }

@@ -1,26 +1,19 @@
 {
-  "$id": "issue.schema.json",
+  "$id": "repository.schema.json",
   "type": "object",
   "required": ["action", "sender"],
   "properties": {
     "action": {
         "enum": [
-          "opened",
-          "edited",
+          "created",
           "deleted",
-          "pinned",
-          "unpinned",
-          "closed",
-          "reopened",
-          "assigned",
-          "unassigned",
-          "labeled",
-          "unlabeled",
-          "locked",
-          "unlocked",
+          "archived",
+          "unarchived",
+          "edited",
+          "renamed",
           "transferred",
-          "milestoned",
-          "demilestoned"
+          "publicized",
+          "privatized"
         ]
     },
     "sender": {

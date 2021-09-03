@@ -1,0 +1,22 @@
+{
+  "$id": "membership.schema.json",
+  "type": "object",
+  "required": ["action", "sender"],
+  "properties": {
+    "action": {
+        "enum": [
+          "added",
+          "removed"
+        ]
+    },
+    "sender": {
+      "type": "object",
+      "required": ["login"],
+      "properties": {
+        "login": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

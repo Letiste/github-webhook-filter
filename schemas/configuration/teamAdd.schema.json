@@ -1,0 +1,10 @@
+{
+  "$id": "TeamAdd.schema.json",
+  "type": "object",
+  "required": ["allowed"],
+  "properties": {
+    "allowed": {
+      "type": "boolean"
+    }
+  }
+}

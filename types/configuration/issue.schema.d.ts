@@ -5,28 +5,27 @@
  * and run json-schema-to-typescript to regenerate this file.
  */
 
-export interface PullRequestSchema {
+export interface IssueSchema {
   /**
    * Permitted actions
    */
   actions: (
-    | "assigned"
-    | "auto_merge_disabled"
-    | "auto_merge_enabled"
-    | "closed"
-    | "converted_to_draft"
-    | "edited"
-    | "labeled"
-    | "locked"
     | "opened"
-    | "ready_for_review"
+    | "edited"
+    | "deleted"
+    | "pinned"
+    | "unpinned"
+    | "closed"
     | "reopened"
-    | "review_request_removed"
-    | "review_requested"
-    | "synchronize"
+    | "assigned"
     | "unassigned"
+    | "labeled"
     | "unlabeled"
+    | "locked"
     | "unlocked"
+    | "transferred"
+    | "milestoned"
+    | "demilestoned"
   )[];
   [k: string]: unknown;
 }
