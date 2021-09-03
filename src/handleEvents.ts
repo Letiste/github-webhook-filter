@@ -35,22 +35,19 @@ export function handleEvents(event: string, body: EventBody, logger: FastifyLogg
 }
 
 function isAllowed(event: EventFilterConfiguration | undefined, body: EventBody) {
-  if (configuration.users_black_listed.includes(body.sender.login)) {
-    return false
-  }
   if (event === undefined) {
     return false;
   }
-  if (configuration.users_black_listed.includes(body.sender.login)) {
+  if (configuration.users_black_listed?.includes(body.sender.login)) {
     return false;
   }
   if (event.allowed === false) {
     return false;
   }
-  if (event.refType !== undefined && body.ref_type !== undefined && !event.refType.includes(body.ref_type)) {
+  if (body.ref_type !== undefined && !event.refType?.includes(body.ref_type)) {
     return false;
   }
-  if (event.actions !== undefined && body.action !== undefined && !event.actions.includes(body.action)) {
+  if (body.action !== undefined && !event.actions?.includes(body.action)) {
     return false;
   }
   return true;
