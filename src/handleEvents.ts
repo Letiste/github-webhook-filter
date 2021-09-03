@@ -35,8 +35,11 @@ import { filterSecretScanningAlert } from './eventHandlers/secretScanningAlertHa
 import { filterTeam } from './eventHandlers/teamHandler';
 
 const filterConfiguration = configuration as FilterConfigurationInterface;
-const webhookUrl =
-  'https://discord.com/api/webhooks/883302370291908618/tY4FM8y4w09BvWBy19emSX56qv9HGV6jELDsN3I-_1ZlHXH9nCEZKiKnaZIvkGUtv-Z2/github';
+const webhookUrl = process.env.WEBHOOK_URL
+
+if (!webhookUrl) {
+  throw new Error('Environment Variabke "WEBHOOK_URL" is not defined')
+}
 
 export function handleEvents(event: string, body: BodyWebhookInterface, headers: IncomingHttpHeaders, logger: FastifyLoggerInstance) {
   if (filterConfiguration.users_black_listed.includes(body.sender.login)) {
@@ -98,7 +101,7 @@ export function handleEvents(event: string, body: BodyWebhookInterface, headers:
         newHeaders[key] = headers[key] as string;
         return newHeaders;
       }, {} as Record<string, string>);
-    axios.post(webhookUrl, body, { headers: { 'Content-Type': 'application/json', ...githubHeaders } }).catch(logger.error);
+    axios.post(webhookUrl!, body, { headers: { 'Content-Type': 'application/json', ...githubHeaders } }).catch(logger.error);
   }
   else {
     logger.warn(`Event "${event}" with property "${body.action || body.ref_type}" from sender "${body.sender.login}" has been filtered`)
