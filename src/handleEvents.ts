@@ -22,6 +22,18 @@ if (!webhookUrl) {
   throw new Error('Environment Variable "WEBHOOK_URL" is not defined');
 }
 
+export function handleEvents(event: string, body: EventBody, logger: FastifyLoggerInstance): {status: number, message: string} {
+  if (isAllowed(configuration[event], body)) {
+    const headers = { 'Content-Type': 'application/json', 'X-Github-Event': event };
+    axios.post(webhookUrl!, body, { headers }).catch(logger.error);
+    return {status: 200, message: 'Event accepted'}
+  } else {
+    const message = `Event "${event}" with property "${body.action || body.ref_type}" from sender "${body.sender.login}" has been filtered`
+    logger.warn(message);
+    return {status: 400, message}
+  }
+}
+
 function isAllowed(event: EventFilterConfiguration | undefined, body: EventBody) {
   if (configuration.users_black_listed.includes(body.sender.login)) {
     return false
@@ -42,16 +54,4 @@ function isAllowed(event: EventFilterConfiguration | undefined, body: EventBody)
     return false;
   }
   return true;
-}
-
-export function handleEvents(event: string, body: EventBody, logger: FastifyLoggerInstance): {status: number, message: string} {
-  if (isAllowed(configuration[event], body)) {
-    const headers = { 'Content-Type': 'application/json', 'X-Github-Event': event };
-    axios.post(webhookUrl!, body, { headers }).catch(logger.error);
-    return {status: 200, message: 'Event accepted'}
-  } else {
-    const message = `Event "${event}" with property "${body.action || body.ref_type}" from sender "${body.sender.login}" has been filtered`
-    logger.warn(message);
-    return {status: 400, message}
-  }
 }
