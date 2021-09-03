@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "required": ["actions"],
+  "properties": {
+    "actions": {
+      "type": "array",
+      "description": "Permitted actions",
+      "items": {
+        "enum": [
+          "deleted",
+          "renamed",
+          "member_added",
+          "member_removed",
+          "member_invited"
+        ]
+      },
+      "uniqueItems": true
+    }
+  }
+}

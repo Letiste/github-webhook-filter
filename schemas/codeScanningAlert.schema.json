@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "required": ["actions"],
+  "properties": {
+    "actions": {
+      "type": "array",
+      "description": "Permitted actions",
+      "items": {
+        "enum": [
+          "created",
+          "reopened_by_user",
+          "closed_by_user",
+          "fixed",
+          "appeared_in_branch",
+          "reopened"
+        ]
+      },
+      "uniqueItems": true
+    }
+  }
+}

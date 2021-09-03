@@ -1,14 +1,7 @@
 import fastify from 'fastify';
-import * as fs from 'fs';
-import * as path from 'path';
-
-const schemas = fs
-  .readdirSync(path.join(__dirname, '../schemas/webhook'))
-  .map((file) => require(path.join(__dirname, '../schemas/webhook', file)));
 
 const server = fastify({
   logger: { prettyPrint: process.env.NODE_ENV?.toLowerCase() !== 'production' },
-  ajv: { customOptions: { schemas } },
 });
 
 server.register(require('./routes'))

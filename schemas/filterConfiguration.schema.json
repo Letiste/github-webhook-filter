@@ -1,0 +1,114 @@
+{
+  "allOf": [
+    {
+      "type": "object",
+      "required": ["users_black_listed"],
+      "properties": { "users_black_listed": { "type": "array", "items": { "type": "string" } } }
+    },
+    {
+      "type": "object",
+      "required": ["pull_request"],
+      "properties": {
+        "pull_request": { "$ref": "./pullRequest.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["repository_vulnerability_alert"],
+      "properties": {
+        "repository_vulnerability_alert": { "$ref": "./repositoryVulnerabilityAlert.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["team"],
+      "properties": {
+        "team": { "$ref": "./team.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["team_add"],
+      "properties": {
+        "team_add": { "$ref": "./teamAdd.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["code_scanning_alert"],
+      "properties": {
+        "code_scanning_alert": { "$ref": "./codeScanningAlert.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["membership"],
+      "properties": {
+        "membership": { "$ref": "./membership.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["milestone"],
+      "properties": {
+        "milestone": { "$ref": "./milestone.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["secret_scanning_alert"],
+      "properties": {
+        "secret_scanning_alert": { "$ref": "./secretScanningAlert.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["organization"],
+      "properties": {
+        "organization": { "$ref": "./organization.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["release"],
+      "properties": {
+        "release": { "$ref": "./release.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["issue"],
+      "properties": {
+        "issue": { "$ref": "./issue.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["repository"],
+      "properties": {
+        "repository": { "$ref": "./repository.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["create"],
+      "properties": {
+        "create": { "$ref": "./create.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["deploy_key"],
+      "properties": {
+        "deploy_key": { "$ref": "./deployKey.schema.json" }
+      }
+    },
+    {
+      "type": "object",
+      "required": ["member"],
+      "properties": {
+        "member": { "$ref": "./member.schema.json" }
+      }
+    }
+  ]
+}

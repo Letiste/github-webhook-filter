@@ -1,0 +1,31 @@
+{
+  "type": "object",
+  "required": ["actions"],
+  "properties": {
+    "actions": {
+      "type": "array",
+      "description": "Permitted actions",
+      "items": {
+        "enum": [
+          "opened",
+          "edited",
+          "deleted",
+          "pinned",
+          "unpinned",
+          "closed",
+          "reopened",
+          "assigned",
+          "unassigned",
+          "labeled",
+          "unlabeled",
+          "locked",
+          "unlocked",
+          "transferred",
+          "milestoned",
+          "demilestoned"
+        ]
+      },
+      "uniqueItems": true
+    }
+  }
+}

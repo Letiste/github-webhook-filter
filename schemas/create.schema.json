@@ -1,0 +1,14 @@
+{
+  "type": "object",
+  "required": ["refType"],
+  "properties": {
+    "refType": {
+      "type": "array",
+      "description": "Permitted refType",
+      "items": {
+        "enum": ["branch", "tag"]
+      },
+      "uniqueItems": true
+    }
+  }
+}

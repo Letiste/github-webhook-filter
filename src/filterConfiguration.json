@@ -1,6 +1,6 @@
 {
-  "$schema": "../schemas/configuration/filterConfiguration.schema.json",
-  "users_black_listed": [],
+  "$schema": "../schemas/filterConfiguration.schema.json",
+  "users_black_listed": ["aze"],
   "pull_request": {
     "actions": ["closed", "opened"]
   },
@@ -13,19 +13,19 @@
   "member": {
     "actions": ["added", "edited", "removed"]
   },
-  "deployKey": {
+  "deploy_key": {
     "actions": ["created", "deleted"]
   },
   "repository": {
     "actions": ["created"]
   },
-  "repositoryVulnerabilityAlert": {
+  "repository_vulnerability_alert": {
     "actions": ["create"]
   },
-  "teamAdd": {
+  "team_add": {
     "allowed": true
   },
-  "codeScanningAlert": {
+  "code_scanning_alert": {
     "actions": ["created"]
   },
   "membership": {
@@ -40,7 +40,7 @@
   "release": {
     "actions": ["created"]
   },
-  "secretScanningAlert": {
+  "secret_scanning_alert": {
     "actions": ["created"]
   },
   "team": {

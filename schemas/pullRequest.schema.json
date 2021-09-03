@@ -1,0 +1,32 @@
+{
+  "type": "object",
+  "required": ["actions"],
+  "properties": {
+    "actions": {
+      "type": "array",
+      "description": "Permitted actions",
+      "items": {
+        "enum": [
+          "assigned",
+          "auto_merge_disabled",
+          "auto_merge_enabled",
+          "closed",
+          "converted_to_draft",
+          "edited",
+          "labeled",
+          "locked",
+          "opened",
+          "ready_for_review",
+          "reopened",
+          "review_request_removed",
+          "review_requested",
+          "synchronize",
+          "unassigned",
+          "unlabeled",
+          "unlocked"
+        ]
+      },
+      "uniqueItems": true
+    }
+  }
+}
