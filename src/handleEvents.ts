@@ -38,7 +38,7 @@ const filterConfiguration = configuration as FilterConfigurationInterface;
 const webhookUrl = process.env.WEBHOOK_URL
 
 if (!webhookUrl) {
-  throw new Error('Environment Variable "WEBHOOK_URL" is not defined')
+  throw new Error('Environment Variabe "WEBHOOK_URL" is not defined')
 }
 
 export function handleEvents(event: string, body: BodyWebhookInterface, headers: IncomingHttpHeaders, logger: FastifyLoggerInstance) {
