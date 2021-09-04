@@ -2,25 +2,47 @@
   "type": "object",
   "properties": {
     "code_scanning_alert": {
-      "type": "object",
-      "required": ["actions"],
-      "properties": {
-        "actions": {
-          "type": "array",
-          "description": "Permitted actions",
-          "items": {
-            "enum": [
-              "created",
-              "reopened_by_user",
-              "closed_by_user",
-              "fixed",
-              "appeared_in_branch",
-              "reopened"
-            ]
-          },
-          "uniqueItems": true
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["permittedActions"],
+          "properties": {
+            "permittedActions": {
+              "description": "White listed actions",
+              "$ref": "#/definitions/actionsAvailable"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["filteredActions"],
+          "properties": {
+            "filteredActions": {
+              "description": "Black listed actions",
+              "$ref": "#/definitions/actionsAvailable"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["allowedAll"],
+          "properties": {
+            "allowedAll": {
+              "description": "If true, allow every actions",
+              "type": "boolean"
+            }
+          }
         }
-      }
+      ]
+    }
+  },
+  "definitions": {
+    "actionsAvailable": {
+      "type": "array",
+      "items": {
+        "enum": ["created", "reopened_by_user", "closed_by_user", "fixed", "appeared_in_branch", "reopened"]
+      },
+      "uniqueItems": true
     }
   }
 }

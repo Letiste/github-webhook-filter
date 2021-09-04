@@ -2,18 +2,47 @@
   "type": "object",
   "properties": {
     "release": {
-      "type": "object",
-      "required": ["actions"],
-      "properties": {
-        "actions": {
-          "type": "array",
-          "description": "Permitted actions",
-          "items": {
-            "enum": ["published", "unpublished", "created", "edited", "deleted", "prereleased", "released"]
-          },
-          "uniqueItems": true
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["permittedActions"],
+          "properties": {
+            "permittedActions": {
+              "description": "White listed actions",
+              "$ref": "#/definitions/actionsAvailable"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["filteredActions"],
+          "properties": {
+            "filteredActions": {
+              "description": "Black listed actions",
+              "$ref": "#/definitions/actionsAvailable"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["allowedAll"],
+          "properties": {
+            "allowedAll": {
+              "description": "If true, allow every actions",
+              "type": "boolean"
+            }
+          }
         }
-      }
+      ]
+    }
+  },
+  "definitions": {
+    "actionsAvailable": {
+      "type": "array",
+      "items": {
+        "enum": ["published", "unpublished", "created", "edited", "deleted", "prereleased", "released"]
+      },
+      "uniqueItems": true
     }
   }
 }

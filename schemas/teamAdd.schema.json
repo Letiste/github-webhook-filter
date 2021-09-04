@@ -3,9 +3,9 @@
   "properties": {
     "team_add": {
       "type": "object",
-      "required": ["allowed"],
+      "required": ["allowedAll"],
       "properties": {
-        "allowed": {
+        "allowedAll": {
           "type": "boolean"
         }
       }

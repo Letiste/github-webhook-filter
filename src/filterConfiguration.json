@@ -2,48 +2,48 @@
   "$schema": "../schemas/filterConfiguration.schema.json",
   "users_black_listed": ["dependabot[bot]"],
   "pull_request": {
-    "actions": ["closed", "opened", "reopened"]
+    "permittedActions": ["closed", "opened", "reopened"]
   },
   "issues": {
-    "actions": ["opened", "closed", "deleted", "reopened"]
+    "permittedActions": ["opened", "closed", "deleted", "reopened"]
   },
   "create": {
-    "refType": ["branch", "tag"]
+    "permittedRefType": ["branch", "tag"]
   },
   "member": {
-    "actions": ["added", "edited", "removed"]
+    "permittedActions": ["added", "edited", "removed"]
   },
   "deploy_key": {
-    "actions": ["created", "deleted"]
+    "permittedActions": ["created", "deleted"]
   },
   "repository": {
-    "actions": ["created", "deleted", "edited", "archived", "privatized", "publicized", "renamed", "transferred"]
+    "permittedActions": ["created", "deleted", "edited", "archived", "privatized", "publicized", "renamed", "transferred"]
   },
   "repository_vulnerability_alert": {
-    "actions": ["create", "resolve", "dismiss"]
+    "permittedActions": ["create", "resolve", "dismiss"]
   },
   "team_add": {
-    "allowed": true
+    "allowedAll": true
   },
   "code_scanning_alert": {
-    "actions": ["created", "appeared_in_branch", "closed_by_user", "fixed", "reopened", "reopened_by_user"]
+    "permittedActions": ["reopened"]
   },
   "membership": {
-    "actions": ["added", "removed"]
+    "permittedActions": ["added", "removed"]
   },
   "milestone": {
-    "actions": ["created", "closed", "deleted", "edited", "opened"]
+    "permittedActions": ["created", "closed", "deleted", "edited", "opened"]
   },
   "organization": {
-    "actions": ["deleted", "member_added", "member_invited", "member_removed", "renamed"]
+    "permittedActions": ["deleted", "member_added", "member_invited", "member_removed", "renamed"]
   },
   "release": {
-    "actions": ["created", "deleted", "edited", "prereleased", "published", "released", "unpublished"]
+    "permittedActions": ["created", "deleted", "edited", "prereleased", "published", "released", "unpublished"]
   },
   "secret_scanning_alert": {
-    "actions": ["created", "reopened", "resolved"]
+    "permittedActions": ["created", "reopened", "resolved"]
   },
   "team": {
-    "actions": ["created", "deleted", "edited", "removed_from_repository", "added_to_repository"]
+    "permittedActions": ["created", "deleted", "edited", "removed_from_repository", "added_to_repository"]
   }
 }

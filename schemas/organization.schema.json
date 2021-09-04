@@ -2,18 +2,47 @@
   "type": "object",
   "properties": {
     "organization": {
-      "type": "object",
-      "required": ["actions"],
-      "properties": {
-        "actions": {
-          "type": "array",
-          "description": "Permitted actions",
-          "items": {
-            "enum": ["deleted", "renamed", "member_added", "member_removed", "member_invited"]
-          },
-          "uniqueItems": true
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["permittedActions"],
+          "properties": {
+            "permittedActions": {
+              "description": "White listed actions",
+              "$ref": "#/definitions/actionsAvailable"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["filteredActions"],
+          "properties": {
+            "filteredActions": {
+              "description": "Black listed actions",
+              "$ref": "#/definitions/actionsAvailable"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["allowedAll"],
+          "properties": {
+            "allowedAll": {
+              "description": "If true, allow every actions",
+              "type": "boolean"
+            }
+          }
         }
-      }
+      ]
+    }
+  },
+  "definitions": {
+    "actionsAvailable": {
+      "type": "array",
+      "items": {
+        "enum": ["deleted", "renamed", "member_added", "member_removed", "member_invited"]
+      },
+      "uniqueItems": true
     }
   }
 }

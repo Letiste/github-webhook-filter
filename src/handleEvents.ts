@@ -11,10 +11,13 @@ export interface EventBody {
 }
 
 interface EventFilterConfiguration {
-  allowed?: boolean,
-  actions?: string[],
-  refType?: string[]
+  allowedAll?: boolean
+  permittedActions?: string[]
+  filteredActions?: string[]
+  permittedRefType?: string[]
+  filteredRefType?: string[]
 }
+
 
 const webhookUrl = process.env.WEBHOOK_URL;
 
@@ -38,17 +41,41 @@ function isAllowed(event: EventFilterConfiguration | undefined, body: EventBody)
   if (event === undefined) {
     return false;
   }
-  if (configuration.users_black_listed?.includes(body.sender.login)) {
+  if (userBlackListed(body)) {
     return false;
   }
-  if (event.allowed === false) {
-    return false;
+  if (event.allowedAll) {
+    return event.allowedAll;
   }
-  if (body.ref_type !== undefined && !event.refType?.includes(body.ref_type)) {
-    return false;
+  if (body.ref_type) {
+    return refTypeAllowed(event, body.ref_type)
   }
-  if (body.action !== undefined && !event.actions?.includes(body.action)) {
-    return false;
+  if (body.action) {
+    return actionAllowed(event, body.action);
   }
-  return true;
+  return false;
+}
+
+function userBlackListed(body: EventBody) {
+    return configuration.users_black_listed?.includes(body.sender.login)
+}
+
+function actionAllowed(event: EventFilterConfiguration, action: string) {
+  if (event.permittedActions && event.permittedActions.includes(action)) {
+    return true;
+  }
+  if (event.filteredActions && !event.filteredActions.includes(action)) {
+    return true;
+  }
+  return false;
+}
+
+function refTypeAllowed(event: EventFilterConfiguration, refType: string) {
+  if (event.permittedRefType && event.permittedRefType.includes(refType)) {
+    return true;
+  }
+  if (event.filteredRefType && !event.filteredRefType.includes(refType)) {
+    return true;
+  }
+  return false;
 }

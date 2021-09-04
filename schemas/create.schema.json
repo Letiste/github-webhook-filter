@@ -2,18 +2,47 @@
   "type": "object",
   "properties": {
     "create": {
-      "type": "object",
-      "required": ["refType"],
-      "properties": {
-        "refType": {
-          "type": "array",
-          "description": "Permitted refType",
-          "items": {
-            "enum": ["branch", "tag"]
-          },
-          "uniqueItems": true
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["permittedRefType"],
+          "properties": {
+            "permittedRefType": {
+              "description": "White listed RefType",
+              "$ref": "#/definitions/refTypeAvailable"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["filteredRefType"],
+          "properties": {
+            "filteredRefType": {
+              "description": "Black listed RefType",
+              "$ref": "#/definitions/refTypeAvailable"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "required": ["allowedAll"],
+          "properties": {
+            "allowedAll": {
+              "description": "If true, allow every RefType",
+              "type": "boolean"
+            }
+          }
         }
-      }
+      ]
+    }
+  },
+  "definitions": {
+    "refTypeAvailable": {
+      "type": "array",
+      "items": {
+        "enum": ["branch", "tag"]
+      },
+      "uniqueItems": true
     }
   }
 }
