@@ -1,11 +1,11 @@
 {
   "$schema": "../schemas/filterConfiguration.schema.json",
-  "users_black_listed": ["aze"],
+  "users_black_listed": ["dependabot[bot]"],
   "pull_request": {
-    "actions": ["closed", "opened"]
+    "actions": ["closed", "opened", "reopened"]
   },
-  "issue": {
-    "actions": ["opened"]
+  "issues": {
+    "actions": ["opened", "closed", "deleted", "reopened"]
   },
   "create": {
     "refType": ["branch", "tag"]
@@ -17,33 +17,33 @@
     "actions": ["created", "deleted"]
   },
   "repository": {
-    "actions": ["created"]
+    "actions": ["created", "deleted", "edited", "archived", "privatized", "publicized", "renamed", "transferred"]
   },
   "repository_vulnerability_alert": {
-    "actions": ["create"]
+    "actions": ["create", "resolve", "dismiss"]
   },
   "team_add": {
     "allowed": true
   },
   "code_scanning_alert": {
-    "actions": ["created"]
+    "actions": ["created", "appeared_in_branch", "closed_by_user", "fixed", "reopened", "reopened_by_user"]
   },
   "membership": {
-    "actions": ["added"]
+    "actions": ["added", "removed"]
   },
   "milestone": {
-    "actions": ["created"]
+    "actions": ["created", "closed", "deleted", "edited", "opened"]
   },
   "organization": {
-    "actions": ["deleted"]
+    "actions": ["deleted", "member_added", "member_invited", "member_removed", "renamed"]
   },
   "release": {
-    "actions": ["created"]
+    "actions": ["created", "deleted", "edited", "prereleased", "published", "released", "unpublished"]
   },
   "secret_scanning_alert": {
-    "actions": ["created"]
+    "actions": ["created", "reopened", "resolved"]
   },
   "team": {
-    "actions": ["created"]
+    "actions": ["created", "deleted", "edited", "removed_from_repository", "added_to_repository"]
   }
 }
