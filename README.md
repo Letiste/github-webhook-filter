@@ -29,3 +29,5 @@ For each event, you can specify **one** of:
 
 For every event:
 - `users_black_listed`: Array of string of users to filter events from. The user is defined by `sender.login` in the request's payload.
+
+You can find all the possible events here: https://docs.github.com/en/developers/webhooks-and-events/webhooks/webhook-events-and-payloads
