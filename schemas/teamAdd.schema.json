@@ -1,9 +1,14 @@
 {
   "type": "object",
-  "required": ["allowed"],
   "properties": {
-    "allowed": {
-      "type": "boolean"
+    "team_add": {
+      "type": "object",
+      "required": ["allowed"],
+      "properties": {
+        "allowed": {
+          "type": "boolean"
+        }
+      }
     }
   }
 }

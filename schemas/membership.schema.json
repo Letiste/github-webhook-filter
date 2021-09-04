@@ -1,14 +1,19 @@
 {
   "type": "object",
-  "required": ["actions"],
   "properties": {
-    "actions": {
-      "type": "array",
-      "description": "Permitted actions",
-      "items": {
-        "enum": ["added", "removed"]
-      },
-      "uniqueItems": true
+    "membership": {
+      "type": "object",
+      "required": ["actions"],
+      "properties": {
+        "actions": {
+          "type": "array",
+          "description": "Permitted actions",
+          "items": {
+            "enum": ["added", "removed"]
+          },
+          "uniqueItems": true
+        }
+      }
     }
   }
 }

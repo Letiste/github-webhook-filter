@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "pull_request": {
+    "issues": {
       "type": "object",
       "required": ["actions"],
       "properties": {
@@ -10,23 +10,22 @@
           "description": "Permitted actions",
           "items": {
             "enum": [
-              "assigned",
-              "auto_merge_disabled",
-              "auto_merge_enabled",
-              "closed",
-              "converted_to_draft",
-              "edited",
-              "labeled",
-              "locked",
               "opened",
-              "ready_for_review",
+              "edited",
+              "deleted",
+              "pinned",
+              "unpinned",
+              "closed",
               "reopened",
-              "review_request_removed",
-              "review_requested",
-              "synchronize",
+              "assigned",
               "unassigned",
+              "labeled",
               "unlabeled",
-              "unlocked"
+              "locked",
+              "unlocked",
+              "transferred",
+              "milestoned",
+              "demilestoned"
             ]
           },
           "uniqueItems": true

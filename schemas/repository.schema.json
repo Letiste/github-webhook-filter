@@ -1,24 +1,19 @@
 {
   "type": "object",
-  "required": ["actions"],
   "properties": {
-    "actions": {
-      "type": "array",
-      "description": "Permitted actions",
-      "items": {
-        "enum": [
-          "created",
-          "deleted",
-          "archived",
-          "unarchived",
-          "edited",
-          "renamed",
-          "transferred",
-          "publicized",
-          "privatized"
-        ]
-      },
-      "uniqueItems": true
+    "repository": {
+      "type": "object",
+      "required": ["actions"],
+      "properties": {
+        "actions": {
+          "type": "array",
+          "description": "Permitted actions",
+          "items": {
+            "enum": ["created", "deleted", "archived", "unarchived", "edited", "renamed", "transferred", "publicized", "privatized"]
+          },
+          "uniqueItems": true
+        }
+      }
     }
   }
 }

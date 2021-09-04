@@ -1,14 +1,19 @@
 {
   "type": "object",
-  "required": ["actions"],
   "properties": {
-    "actions": {
-      "type": "array",
-      "description": "Permitted actions",
-      "items": {
-        "enum": ["created", "deleted"]
-      },
-      "uniqueItems": true
+    "deploy_key": {
+      "type": "object",
+      "required": ["actions"],
+      "properties": {
+        "actions": {
+          "type": "array",
+          "description": "Permitted actions",
+          "items": {
+            "enum": ["created", "deleted"]
+          },
+          "uniqueItems": true
+        }
+      }
     }
   }
 }
