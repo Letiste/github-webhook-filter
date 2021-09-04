@@ -6,7 +6,7 @@ const server = fastify({
 
 server.register(require('./routes'))
 
-server.listen({host: process.env.HOST || "127.0.0.1", port: Number(process.env.PORT) || 4567}, (err, address) => {
+server.listen({host: process.env.HOST || "127.0.0.1", port: Number(process.env.PORT) || 3000}, (err, address) => {
   if (err) {
     server.log.error(err);
     process.exit(1);
