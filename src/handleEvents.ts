@@ -32,32 +32,24 @@ export function handleEvents(event: string, body: EventBody, logger: FastifyLogg
     return {status: 200, message: 'Event accepted'}
   } else {
     const message = `Event "${event}" with property "${body.action || body.ref_type}" from sender "${body.sender.login}" has been filtered`
-    logger.warn(message);
+    logger.info(message);
     return {status: 400, message}
   }
 }
 
 function isAllowed(event: EventFilterConfiguration | undefined, body: EventBody) {
-  if (event === undefined) {
-    return false;
-  }
-  if (userBlackListed(body)) {
-    return false;
-  }
-  if (event.allowedAll) {
-    return event.allowedAll;
-  }
-  if (body.ref_type) {
-    return refTypeAllowed(event, body.ref_type)
-  }
-  if (body.action) {
-    return actionAllowed(event, body.action);
-  }
-  return false;
+  return event !== undefined && userAllowed(body) && typeEventAllowed(event, body)
 }
 
-function userBlackListed(body: EventBody) {
-    return configuration.users_black_listed?.includes(body.sender.login)
+function userAllowed(body: EventBody) {
+  if (configuration.users_black_listed) {
+    return !configuration.users_black_listed.includes(body.sender.login)
+  }
+    return true
+}
+
+function typeEventAllowed(event: EventFilterConfiguration, body: EventBody) {
+  return event.allowedAll || (body.action && actionAllowed(event, body.action)) || (body.ref_type && refTypeAllowed(event, body.ref_type))
 }
 
 function actionAllowed(event: EventFilterConfiguration, action: string) {
