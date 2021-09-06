@@ -27,16 +27,17 @@ interface TypeEventAllowed {
   body: EventBody;
 }
 
-const webhookUrl = process.env.WEBHOOK_URL;
+const WEBHOOK_URL = process.env.WEBHOOK_URL;
+const BLOCK_UNDEFINED_EVENTS = process.env.BLOCK_UNDEFINED_EVENTS?.toLowerCase() === 'true'
 
-if (!webhookUrl) {
+if (!WEBHOOK_URL) {
   throw new Error('Environment Variable "WEBHOOK_URL" is not defined');
 }
 
 export function handleEvents(event: string, body: EventBody, logger: FastifyLoggerInstance): { status: number; message: string } {
   if (isAllowed(configuration[event], body)) {
     const headers = { 'Content-Type': 'application/json', 'X-Github-Event': event };
-    axios.post(webhookUrl!, body, { headers }).catch(logger.error);
+    axios.post(WEBHOOK_URL!, body, { headers }).catch(logger.error);
     return { status: 200, message: 'Event accepted' };
   } else {
     const property =  body.action ? `action "${body.action}"` :
@@ -49,6 +50,9 @@ export function handleEvents(event: string, body: EventBody, logger: FastifyLogg
 }
 
 function isAllowed(event: EventFilterConfiguration | undefined, body: EventBody) {
+  if (!BLOCK_UNDEFINED_EVENTS && !event) {
+    return true
+  }
   return event !== undefined && userAllowed(configuration.users_black_listed, body) && eventAllowed(event, body);
 }
 

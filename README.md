@@ -20,6 +20,7 @@ Environment variables available:
 - `WEBHOOK_URL`: Url to send the filtered webhooks to.
 - `PORT`: Port the server listen on. Default to `3000`.
 - `HOST`: Domain the server listen on. Default to `127.0.0.1`.
+- `BLOCK_UNDEFINED_EVENTS`: If set to `true`, every events not defined in the filter configuration will be blocked. Default to `false`.
 
 ### Filter configuration
 
