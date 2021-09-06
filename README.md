@@ -39,3 +39,5 @@ You can find all the possible events here: https://docs.github.com/en/developers
 If you want to test locally, you will need to redirect the webhook sent by Github to your local server. One solution is to use [ngrok](https://ngrok.com/), as explained in the Github's documentation: https://docs.github.com/en/developers/webhooks-and-events/webhooks/creating-webhooks#exposing-localhost-to-the-internet.
 
 You can also have access to the recent deliveries of a webhook, as explained here: https://docs.github.com/en/developers/webhooks-and-events/webhooks/testing-webhooks.
+
+To generate new events json schema, add them to the file `events/index.ts` and run the command `npm run generate-schemas`.

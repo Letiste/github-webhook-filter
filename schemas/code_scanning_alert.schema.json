@@ -1,7 +1,7 @@
 {
   "type": "object",
   "properties": {
-    "member": {
+    "code_scanning_alert": {
       "allOf": [
         {
           "oneOf": [
@@ -48,7 +48,7 @@
     "ActionsAvailable": {
       "type": "array",
       "items": {
-        "enum": ["added","removed","edited"] 
+        "enum": ["created","reopened_by_user","closed_by_user","fixed","appeared_in_branch","reopened"] 
       },
       "uniqueItems": true
     }

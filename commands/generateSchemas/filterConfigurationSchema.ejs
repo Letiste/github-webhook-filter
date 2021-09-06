@@ -1,0 +1,15 @@
+{
+  "allOf": [
+    {
+      "type": "object",
+      "properties": { "users_black_listed": { "type": "array", "items": { "type": "string" } } }
+    },
+<% for( let index = 0; index < eventsName.length; index++ ) { -%>
+  <%_ if (index === eventsName.length - 1) { -%>
+    { "$ref": "./<%- eventsName[index] %>.schema.json" }
+  <%_ } else { -%>
+    { "$ref": "./<%- eventsName[index] %>.schema.json" },
+  <% } -%>    
+<% } -%>    
+  ]
+}

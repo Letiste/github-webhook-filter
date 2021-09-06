@@ -1,5 +1,5 @@
 {
-  "$schema": "../schemas/filterConfiguration.schema.json",
+  "$schema": "../schemas/filter_configuration.schema.json",
   "users_black_listed": ["dependabot[bot]"],
   "pull_request": {
     "permittedActions": ["closed", "opened", "reopened"]
@@ -8,7 +8,7 @@
     "permittedActions": ["opened", "closed", "deleted", "reopened"]
   },
   "create": {
-    "permittedRefType": ["branch", "tag"]
+    "permittedRefTypes": ["branch", "tag"]
   },
   "member": {
     "permittedActions": ["added", "edited", "removed"]

@@ -10,8 +10,8 @@
               "required": ["permittedActions"],
               "properties": {
                 "permittedActions": {
-                  "description": "White listed actions",
-                  "$ref": "#/definitions/actionsAvailable"
+                  "description": "White listed Actions",
+                  "$ref": "#/definitions/ActionsAvailable"
                 }
               }
             },
@@ -20,8 +20,8 @@
               "required": ["filteredActions"],
               "properties": {
                 "filteredActions": {
-                  "description": "Black listed actions",
-                  "$ref": "#/definitions/actionsAvailable"
+                  "description": "Black listed Actions",
+                  "$ref": "#/definitions/ActionsAvailable"
                 }
               }
             },
@@ -30,7 +30,7 @@
               "required": ["allowedAll"],
               "properties": {
                 "allowedAll": {
-                  "description": "If true, allow every actions",
+                  "description": "If true, allow every Actions",
                   "type": "boolean"
                 }
               }
@@ -45,10 +45,10 @@
     }
   },
   "definitions": {
-    "actionsAvailable": {
+    "ActionsAvailable": {
       "type": "array",
       "items": {
-        "enum": ["created", "closed", "opened", "edited", "deleted"]
+        "enum": ["created","closed","opened","edited","deleted"] 
       },
       "uniqueItems": true
     }

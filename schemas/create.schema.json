@@ -7,21 +7,21 @@
           "oneOf": [
             {
               "type": "object",
-              "required": ["permittedRefType"],
+              "required": ["permittedRefTypes"],
               "properties": {
-                "permittedRefType": {
-                  "description": "White listed RefType",
-                  "$ref": "#/definitions/refTypeAvailable"
+                "permittedRefTypes": {
+                  "description": "White listed RefTypes",
+                  "$ref": "#/definitions/RefTypesAvailable"
                 }
               }
             },
             {
               "type": "object",
-              "required": ["filteredRefType"],
+              "required": ["filteredRefTypes"],
               "properties": {
-                "filteredRefType": {
-                  "description": "Black listed RefType",
-                  "$ref": "#/definitions/refTypeAvailable"
+                "filteredRefTypes": {
+                  "description": "Black listed RefTypes",
+                  "$ref": "#/definitions/RefTypesAvailable"
                 }
               }
             },
@@ -30,7 +30,7 @@
               "required": ["allowedAll"],
               "properties": {
                 "allowedAll": {
-                  "description": "If true, allow every RefType",
+                  "description": "If true, allow every RefTypes",
                   "type": "boolean"
                 }
               }
@@ -45,10 +45,10 @@
     }
   },
   "definitions": {
-    "refTypeAvailable": {
+    "RefTypesAvailable": {
       "type": "array",
       "items": {
-        "enum": ["branch", "tag"]
+        "enum": ["branch","tag"] 
       },
       "uniqueItems": true
     }

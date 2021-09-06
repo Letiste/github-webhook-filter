@@ -10,8 +10,8 @@
               "required": ["permittedActions"],
               "properties": {
                 "permittedActions": {
-                  "description": "White listed actions",
-                  "$ref": "#/definitions/actionsAvailable"
+                  "description": "White listed Actions",
+                  "$ref": "#/definitions/ActionsAvailable"
                 }
               }
             },
@@ -20,8 +20,8 @@
               "required": ["filteredActions"],
               "properties": {
                 "filteredActions": {
-                  "description": "Black listed actions",
-                  "$ref": "#/definitions/actionsAvailable"
+                  "description": "Black listed Actions",
+                  "$ref": "#/definitions/ActionsAvailable"
                 }
               }
             },
@@ -30,7 +30,7 @@
               "required": ["allowedAll"],
               "properties": {
                 "allowedAll": {
-                  "description": "If true, allow every actions",
+                  "description": "If true, allow every Actions",
                   "type": "boolean"
                 }
               }
@@ -45,28 +45,10 @@
     }
   },
   "definitions": {
-    "actionsAvailable": {
+    "ActionsAvailable": {
       "type": "array",
       "items": {
-        "enum": [
-          "assigned",
-          "auto_merge_disabled",
-          "auto_merge_enabled",
-          "closed",
-          "converted_to_draft",
-          "edited",
-          "labeled",
-          "locked",
-          "opened",
-          "ready_for_review",
-          "reopened",
-          "review_request_removed",
-          "review_requested",
-          "synchronize",
-          "unassigned",
-          "unlabeled",
-          "unlocked"
-        ]
+        "enum": ["assigned","auto_merge_disabled","auto_merge_enabled","closed","converted_to_draft","edited","labeled","locked","opened","ready_for_review","reopened","review_request_removed","review_requested","synchronize","unassigned","unlabeled","unlocked"] 
       },
       "uniqueItems": true
     }

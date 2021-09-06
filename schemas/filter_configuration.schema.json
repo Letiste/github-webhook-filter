@@ -1,0 +1,39 @@
+{
+  "allOf": [
+    {
+      "type": "object",
+      "properties": { "users_black_listed": { "type": "array", "items": { "type": "string" } } }
+    },
+    { "$ref": "./code_scanning_alert.schema.json" },
+      
+    { "$ref": "./create.schema.json" },
+      
+    { "$ref": "./deploy_key.schema.json" },
+      
+    { "$ref": "./issues.schema.json" },
+      
+    { "$ref": "./member.schema.json" },
+      
+    { "$ref": "./membership.schema.json" },
+      
+    { "$ref": "./milestone.schema.json" },
+      
+    { "$ref": "./organization.schema.json" },
+      
+    { "$ref": "./pull_request.schema.json" },
+      
+    { "$ref": "./release.schema.json" },
+      
+    { "$ref": "./repository.schema.json" },
+      
+    { "$ref": "./repository_vulnerability_alert.schema.json" },
+      
+    { "$ref": "./secret_scanning_alert.schema.json" },
+      
+    { "$ref": "./team.schema.json" },
+      
+    { "$ref": "./team_add.schema.json" }
+    
+    
+  ]
+}

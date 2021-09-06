@@ -1,27 +1,27 @@
 {
   "type": "object",
   "properties": {
-    "deploy_key": {
+    "<%- eventName %>": {
       "allOf": [
         {
           "oneOf": [
             {
               "type": "object",
-              "required": ["permittedActions"],
+              "required": ["permitted<%- type %>s"],
               "properties": {
-                "permittedActions": {
-                  "description": "White listed actions",
-                  "$ref": "#/definitions/actionsAvailable"
+                "permitted<%- type %>s": {
+                  "description": "White listed <%- type %>s",
+                  "$ref": "#/definitions/<%- type %>sAvailable"
                 }
               }
             },
             {
               "type": "object",
-              "required": ["filteredActions"],
+              "required": ["filtered<%- type %>s"],
               "properties": {
-                "filteredActions": {
-                  "description": "Black listed actions",
-                  "$ref": "#/definitions/actionsAvailable"
+                "filtered<%- type %>s": {
+                  "description": "Black listed <%- type %>s",
+                  "$ref": "#/definitions/<%- type %>sAvailable"
                 }
               }
             },
@@ -30,7 +30,7 @@
               "required": ["allowedAll"],
               "properties": {
                 "allowedAll": {
-                  "description": "If true, allow every actions",
+                  "description": "If true, allow every <%- type %>s",
                   "type": "boolean"
                 }
               }
@@ -45,10 +45,10 @@
     }
   },
   "definitions": {
-    "actionsAvailable": {
+    "<%- type %>sAvailable": {
       "type": "array",
       "items": {
-        "enum": ["created", "deleted"]
+        "enum": <%- JSON.stringify(eventTypes) %> 
       },
       "uniqueItems": true
     }

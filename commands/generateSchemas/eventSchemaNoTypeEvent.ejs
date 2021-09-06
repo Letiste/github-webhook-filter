@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "<%- eventName %>": {
+      "type": "object",
+      "required": ["allowedAll"],
+      "properties": {
+        "allowedAll": {
+          "type": "boolean"
+        },
+        "users_black_listed": { "type": "array", "items": { "type": "string" } }
+      }
+    }
+  }
+}
