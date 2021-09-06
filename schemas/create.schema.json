@@ -2,36 +2,44 @@
   "type": "object",
   "properties": {
     "create": {
-      "oneOf": [
+      "allOf": [
         {
-          "type": "object",
-          "required": ["permittedRefType"],
-          "properties": {
-            "permittedRefType": {
-              "description": "White listed RefType",
-              "$ref": "#/definitions/refTypeAvailable"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["permittedRefType"],
+              "properties": {
+                "permittedRefType": {
+                  "description": "White listed RefType",
+                  "$ref": "#/definitions/refTypeAvailable"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["filteredRefType"],
+              "properties": {
+                "filteredRefType": {
+                  "description": "Black listed RefType",
+                  "$ref": "#/definitions/refTypeAvailable"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["allowedAll"],
+              "properties": {
+                "allowedAll": {
+                  "description": "If true, allow every RefType",
+                  "type": "boolean"
+                }
+              }
             }
-          }
+          ]
         },
         {
           "type": "object",
-          "required": ["filteredRefType"],
-          "properties": {
-            "filteredRefType": {
-              "description": "Black listed RefType",
-              "$ref": "#/definitions/refTypeAvailable"
-            }
-          }
-        },
-        {
-          "type": "object",
-          "required": ["allowedAll"],
-          "properties": {
-            "allowedAll": {
-              "description": "If true, allow every RefType",
-              "type": "boolean"
-            }
-          }
+          "properties": { "users_black_listed": { "type": "array", "items": { "type": "string" } } }
         }
       ]
     }

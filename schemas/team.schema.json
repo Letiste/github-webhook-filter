@@ -2,36 +2,44 @@
   "type": "object",
   "properties": {
     "team": {
-      "oneOf": [
+      "allOf": [
         {
-          "type": "object",
-          "required": ["permittedActions"],
-          "properties": {
-            "permittedActions": {
-              "description": "White listed actions",
-              "$ref": "#/definitions/actionsAvailable"
+          "oneOf": [
+            {
+              "type": "object",
+              "required": ["permittedActions"],
+              "properties": {
+                "permittedActions": {
+                  "description": "White listed actions",
+                  "$ref": "#/definitions/actionsAvailable"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["filteredActions"],
+              "properties": {
+                "filteredActions": {
+                  "description": "Black listed actions",
+                  "$ref": "#/definitions/actionsAvailable"
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": ["allowedAll"],
+              "properties": {
+                "allowedAll": {
+                  "description": "If true, allow every actions",
+                  "type": "boolean"
+                }
+              }
             }
-          }
+          ]
         },
         {
           "type": "object",
-          "required": ["filteredActions"],
-          "properties": {
-            "filteredActions": {
-              "description": "Black listed actions",
-              "$ref": "#/definitions/actionsAvailable"
-            }
-          }
-        },
-        {
-          "type": "object",
-          "required": ["allowedAll"],
-          "properties": {
-            "allowedAll": {
-              "description": "If true, allow every actions",
-              "type": "boolean"
-            }
-          }
+          "properties": { "users_black_listed": { "type": "array", "items": { "type": "string" } } }
         }
       ]
     }
