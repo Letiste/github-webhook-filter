@@ -50,10 +50,13 @@ export function handleEvents(event: string, body: EventBody, logger: FastifyLogg
 }
 
 function isAllowed(event: EventFilterConfiguration | undefined, body: EventBody) {
+  if (!userAllowed(configuration.users_black_listed, body)) {
+    return false
+  }
   if (!BLOCK_UNDEFINED_EVENTS && !event) {
     return true
   }
-  return event !== undefined && userAllowed(configuration.users_black_listed, body) && eventAllowed(event, body);
+  return event !== undefined && eventAllowed(event, body);
 }
 
 function userAllowed(users_black_listed: string[] | undefined, body: EventBody) {
