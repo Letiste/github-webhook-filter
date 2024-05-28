@@ -1,4 +1,4 @@
 {
   "$schema": "../schemas/filter_configuration.schema.json",
-  "users_black_listed": ["dependabot[bot]", "renovate[bot]"]
+  "users_black_listed": ["codecov[bot]", "dependabot[bot]", "renovate[bot]"]
 }
